@@ -11,5 +11,4 @@ project/
 ├── .env               # Переменные окружения
 
 └── public/            # Папка для статических файлов
-
-    └── index.html     # HTML файл
+        index.html     # HTML файл
