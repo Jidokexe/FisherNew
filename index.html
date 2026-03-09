@@ -3,479 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход | New LXP — обновленный макет</title>
+    <title>Авторизация</title>
     <style>
-        * {
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f2f5fa;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            color: #121f33;
-            line-height: 1.4;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f9fc;
         }
 
-        /* общий белый фон для всего содержимого (чтобы поддержка была на общем фоне) */
-        .app-wrapper {
-            max-width: 700px;
-            width: 100%;
-            background-color: #ffffff;
-            border-radius: 48px 48px 32px 32px;
-            box-shadow: 0 30px 60px -25px rgba(12, 30, 60, 0.3);
-            margin: 30px 20px;
-            overflow: hidden;
-            border: 1px solid rgba(201, 218, 240, 0.5);
-        }
-
-        /* шапка с логотипом, знаком вопроса и фиолетовой кнопкой */
-        .top-bar {
+        /* Шапка сайта */
+        header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 20px 32px;
-            background-color: white;
-            border-bottom: 1.5px solid #eaedf2;
-        }
-
-        .logo-area {
-            display: flex;
             align-items: center;
-            gap: 14px;
-        }
-
-        /* заглушка под логотип (имитация logo.png) */
-        .logo-placeholder {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 24px;
-            box-shadow: 0 8px 14px -6px #b4a7f0;
-        }
-
-        .logo-text {
-            font-weight: 620;
-            font-size: 20px;
-            letter-spacing: -0.02em;
-            color: #1e2c41;
-            border-left: 2px solid #d9ddee;
-            padding-left: 14px;
-        }
-
-        .right-actions {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        /* знак вопроса в кружке */
-        .help-icon {
-            background-color: #f0f3fd;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 600;
-            color: #4f46e5;
-            cursor: pointer;
-            transition: 0.15s;
-            border: 1px solid #d3d9fc;
-        }
-
-        .help-icon:hover {
-            background-color: #e5eafe;
-            transform: scale(1.03);
-        }
-
-        /* фиолетовая кнопка "войти" (акцент) */
-        .purple-login {
-            background-color: #7c4dff; /* яркий фиолетовый */
-            border: none;
-            border-radius: 32px;
-            padding: 12px 32px;
-            font-weight: 590;
-            font-size: 16px;
-            color: white;
-            letter-spacing: 0.3px;
-            cursor: pointer;
-            box-shadow: 0 12px 18px -8px #b085f5;
-            transition: 0.15s;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .purple-login:hover {
-            background-color: #6a3de0;
-            transform: translateY(-2px);
-            box-shadow: 0 20px 22px -10px #9f7aea;
-        }
-
-        .purple-login:active {
-            transform: translateY(1px);
-            box-shadow: 0 8px 12px -5px #8b5cf6;
-        }
-
-        /* основная карточка входа (белая, без нижних блоков) */
-        .login-card {
-            padding: 28px 32px 20px 32px;
-            background-color: white;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: 640;
-            letter-spacing: -0.02em;
-            color: #0b1b31;
-            margin-bottom: 32px;
-        }
-
-        /* поля ввода */
-        .input-group {
-            margin-bottom: 24px;
-        }
-
-        .input-label {
-            display: block;
-            font-size: 15px;
-            font-weight: 530;
-            color: #283851;
-            margin-bottom: 6px;
-        }
-
-        .input-field {
             width: 100%;
-            background-color: #f8fafe;
-            border: 1.5px solid #dbe2ef;
-            border-radius: 20px;
-            padding: 16px 22px;
-            font-size: 16px;
-            color: #0f1f34;
-            outline: none;
-            transition: 0.2s;
-        }
-
-        .input-field:focus {
-            border-color: #7c4dff;
+            padding: 10px 20px;
+            box-sizing: border-box;
             background-color: #ffffff;
-            box-shadow: 0 0 0 5px #e3d9ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
         }
-
-        .input-field::placeholder {
-            color: #9eafc9;
+        .logo {
+            display: flex;
+            align-items: center;
         }
-
-        /* фиолетовая кнопка входа (основной action) */
-        .login-btn {
-            width: 100%;
-            background-color: #7c4dff;
+        .logo img {
+            height: 40px; /* Высота логотипа */
+        }
+        .login-button {
+            padding: 8px 16px;
+            background-color: #a600ff;
+            color: #ffffff;
             border: none;
-            border-radius: 30px;
-            padding: 16px 20px;
-            font-size: 18px;
-            font-weight: 600;
-            color: white;
-            margin: 12px 0 22px 0;
+            border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 14px 24px -8px #aa8bfa;
-            transition: 0.15s;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .login-btn:hover {
-            background-color: #6a3de0;
-            transform: scale(0.99);
-        }
-
-        .forgot-link {
-            display: inline-block;
-            font-size: 15px;
-            font-weight: 520;
-            color: #5b3fc7;
-            text-decoration: none;
-            border-bottom: 1px dashed #b1b5f0;
-            margin-bottom: 28px;
-        }
-
-        .privacy-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding-bottom: 24px;
-            border-bottom: 2px solid #ecf0f7;
-            margin-bottom: 10px;
-        }
-
-        .privacy-link {
-            color: #4f46e5;
-            text-decoration: none;
-            font-weight: 520;
-        }
-
-        /* разделитель как на скрине */
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #8f9fb9;
-            margin: 16px 0 16px;
-        }
-
-        .divider-line {
-            flex: 1;
-            height: 2px;
-            background: #dde5f0;
-        }
-
-        /* плашка информация о платформе */
-        .platform-badge {
-            background-color: #f4f1ff;
-            border-radius: 40px;
-            padding: 8px 22px;
             font-size: 14px;
-            font-weight: 600;
-            color: #5e4b9c;
-            display: inline-block;
-            border: 1px solid #d7cbfa;
-            margin: 10px 0 18px;
-        }
-
-        /* нижний белый фон: весь блок поддержки и политика, куки — теперь отдельно на общем фоне (вне card) */
-        .support-footer-section {
-            background-color: white;
-            padding: 8px 32px 28px 32px;
-            border-top: 2px solid #f0f4fe;
-        }
-
-        /* блок поддержки (Столкнулись с трудностями?) без своей плашки — просто на белом */
-        .support-block {
-            background-color: #f7f9ff;
-            border-radius: 28px;
-            padding: 22px 25px;
-            margin-top: 8px;
-            margin-bottom: 24px;
-            border: 1px solid #e0e6fc;
-        }
-
-        .support-title {
-            font-weight: 680;
-            font-size: 18px;
-            color: #16233e;
-            margin-bottom: 10px;
-        }
-
-        .support-text {
-            font-size: 15px;
-            color: #1f3362;
-            line-height: 1.5;
-        }
-
-        .support-email {
-            background: #e7e1ff;
-            border-radius: 40px;
-            padding: 4px 16px;
-            font-weight: 600;
-            color: #4b2e9e;
             text-decoration: none;
-            border: 1px solid #bca9ff;
-            display: inline-block;
-            margin-top: 8px;
+            transition: background 0.3s;
+        }
+        .login-button:hover {
+            background-color: #7f00cc;
         }
 
-        .support-email:hover {
-            background: #dad0ff;
+        /* Стили для центрированной формы */
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            margin-top: 80px; /* Отступ из-за фиксированной шапки */
         }
-
-        /* блок информации о cookie (из сайта) */
-        .cookie-info {
-            font-size: 13px;
-            color: #5d718b;
-            background: #fafcff;
-            border-radius: 24px;
-            padding: 16px 20px;
-            border: 1px solid #dbe1ed;
-            margin: 20px 0 15px;
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
         }
-
-        .cookie-info a {
-            color: #6a45d6;
-            font-weight: 500;
-            text-decoration: none;
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
         }
-
-        /* маленькая надпись "Информация о платформе" в самом низу */
-        .footer-platform-note {
-            font-size: 13px;
-            color: #64799e;
-            border-top: 1px solid #e0e8f2;
-            padding-top: 18px;
-            margin-top: 5px;
-            display: flex;
-            justify-content: space-between;
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border: 1px solid #7f7fff;
         }
-
-        /* спасательный круг теперь в шапке — заменили знак вопроса? но знак вопроса остается отдельно. добавим еще спасательный круг как отдельный элемент справа? либо заменим help-icon. По условию: "замени символ поддержки на спасательный круг" — сделаем так: help-icon станет спасательным кругом */
-        .lifebuoy-icon {
-            background-color: #fee9b0;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #f7c35c;
-            color: #b26200;
-            font-size: 22px;
+        .button {
+            width: 90%;
+            padding: 10px;
+            background-color: #a600ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: 0.1s;
+            font-size: 16px;
+            transition: background 0.3s;
         }
-
-        .lifebuoy-icon:hover {
-            background-color: #fad898;
-            transform: rotate(5deg);
+        .button:hover {
+            background-color: #7f00cc;
         }
-
-        /* адаптируем шапку: заменяем help-icon на lifebuoy-icon */
-        .right-actions .lifebuoy-icon {
-            margin-right: 5px;
+        a {
+            text-decoration: none;
+            color: #7f00cc;
+            font-size: 14px;
         }
-
-        /* добавим маленький текст */
-        .email-highlight {
-            background: #f2eaff;
-            border-radius: 30px;
-            padding: 2px 14px;
+        p {
+            font-size: 12px;
+            color: #999;
         }
-
-        /* фиолетовый везде где надо */
-        .purple-bg {
-            background-color: #7c4dff;
+        .support {
+            margin-top: 15px;
+            font-size: 12px;
         }
     </style>
+    <script>
+        // Предупреждение при попытке отправки формы
+        function phishingWarning(event) {
+            event.preventDefault();
+            alert("Внимание! Эта страница может быть фишинговой. Никогда не вводите свои логины и пароли на подозрительных сайтах.");
+        }
+    </script>
 </head>
 <body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">
+            <img src="LXP_ITHUB Logo.png" alt="Логотип"> <!-- Изображение логотипа -->
+        </div>
+        <a href="#" class="login-button">Войти</a>
+    </header>
 
-<div class="app-wrapper">
-    <!-- шапка с логотипом, спасательным кругом и фиолетовой кнопкой "войти" -->
-    <div class="top-bar">
-        <div class="logo-area">
-            <!-- заглушка под фото logo.png (в точности как просили: "в виде фото, которое я закреплю в проект (logo.png)" — показываем имитацию -->
-            <div class="logo-placeholder" role="img" aria-label="Логотип">
-                <!-- вместо фото пока фиолетовый квадрат с иконкой, но можно заменить на тег img если нужно -->
-                <span>📸</span>
-            </div>
-            <span class="logo-text">newlxp.ru</span>
+    <!-- Основной контейнер формы -->
+    <div class="container">
+        <h2>Добро пожаловать!</h2>
+        <form method="post" action="#" onsubmit="phishingWarning(event)">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit" class="button">Войти</button>
+        </form>
+        <div class="support">
+            <a href="#">Забыли пароль?</a>
         </div>
-        <div class="right-actions">
-            <!-- спасательный круг (заменил знак вопроса) именно круг поддержки -->
-            <div class="lifebuoy-icon" title="Круг поддержки (спасательный)">
-                🛟
-            </div>
-            <!-- фиолетовая кнопка войти -->
-            <button class="purple-login">Войти</button>
-        </div>
+        <p>Столкнулись с трудностями?<br>Вы можете написать на почту <b>newlxp@ithub.ru</b></p>
     </div>
-
-    <!-- основная часть — карточка входа (без поддержки) -->
-    <div class="login-card">
-        <h1>Добро пожаловать!</h1>
-
-        <div class="input-group">
-            <div class="input-label">Email</div>
-            <input class="input-field" type="email" placeholder="example@mail.ru">
-        </div>
-
-        <div class="input-group">
-            <div class="input-label">Пароль</div>
-            <input class="input-field" type="password" placeholder="********">
-        </div>
-
-        <button class="login-btn">[Войти]</button>
-
-        <a href="#" class="forgot-link">Забыли пароль?</a>
-
-        <!-- Политика конфиденциальности (верхняя) -->
-        <div class="privacy-row">
-            <span style="color:#334e77;">Политика конфиденциальности</span>
-            <span style="color:#b2c1da;">|</span>
-            <a href="#" class="privacy-link">Политика</a>
-        </div>
-
-        <!-- разделитель как на скриншоте --->
-        <div class="divider">
-            <span class="divider-line"></span>
-            <span style="color:#7f93b5;">---</span>
-            <span class="divider-line"></span>
-        </div>
-
-        <!-- плашка "Информация о платформе" (внутри карточки, по желанию оставлена) -->
-        <div class="platform-badge">Информация о платформе</div>
-    </div> <!-- конец login-card -->
-
-    <!-- ВЫНЕСЕНО ВНИЗ: всё начиная с "Столкнулись с трудностями?" на общем белом фоне -->
-    <div class="support-footer-section">
-        <!-- блок поддержки (Столкнулись с трудностями?) ровно как просили -->
-        <div class="support-block">
-            <div class="support-title">Столкнулись с трудностями?</div>
-            <div class="support-text">
-                Вы можете обратиться в поддержку через спасательный круг в правом верхнем углу (в шапке) или написать на почту
-                <a href="mailto:newlxp@ithub.ru" class="support-email">newlxp@ithub.ru</a>
-            </div>
-        </div>
-
-        <!-- информация про cookie (из URL) -->
-        <div class="cookie-info">
-            На нашем сайте обрабатываются cookie-файлы, в том числе при помощи сервисов веб-аналитики. Используя сайт, вы соглашаетесь на обработку персональных данных при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="#">Политике конфиденциальности</a>.
-        </div>
-
-        <!-- нижняя строка с "Информация о платформе" -->
-        <div class="footer-platform-note">
-            <span>Информация о платформе</span>
-            <span style="color:#a2b6d3;">v.2.5</span>
-        </div>
-    </div>
-</div> <!-- закрыли app-wrapper -->
-
-<!-- маленький скрипт для демо-кликов -->
-<script>
-    (function() {
-        // предотвращаем переход по пустым ссылкам
-        document.querySelectorAll('a[href="#"]').forEach(link => {
-            link.addEventListener('click', e => e.preventDefault());
-        });
-
-        // клик по спасательному кругу в шапке
-        const lifebuoy = document.querySelector('.lifebuoy-icon');
-        if (lifebuoy) {
-            lifebuoy.addEventListener('click', () => {
-                alert('🛟 Спасательный круг поддержки\nnewlxp@ithub.ru');
-            });
-        }
-
-        // фиолетовые кнопки
-        document.querySelectorAll('.purple-login, .login-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (e.target.classList.contains('login-btn') || e.target.classList.contains('purple-login')) {
-                    alert('Демо-вход (форма неактивна)');
-                }
-            });
-        });
-    })();
-</script>
-
 </body>
 </html>
