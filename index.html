@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Изменено с center на flex-start — подняли контейнер вверх */
+            min-height: 100vh;
+            background-color: #f8f9fc;
+        }
+
+        /* Шапка сайта */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Высота логотипа */
+        }
+        .login-button {
+            padding: 8px 16px;
+            background-color: #a600ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .login-button:hover {
+            background-color: #7f00cc;
+        }
+
+        /* Стили для центрированной формы */
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            /* text-align: center; - удалено, так как нам нужно выровнять заголовок влево */
+            margin-top: 100px; /* Отступ от фиксированной шапки */
+        }
+
+        /* Изменения согласно заданию: центровка влево */
+        .container h2 {
+            color: #333333;
+            margin-bottom: 20px;
+            text-align: left; /* центровка влево */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border: 1px solid #7f7fff;
+        }
+
+        /* Изменения: ширина кнопки как у окна пароль (90%) и одинаковый верхний отступ */
+        .button {
+            width: 90%;              /* как у окна пароль */
+            padding: 10px;
+            background-color: #a600ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-top: 10px;         /* отступ сверху как у полей (10px) */
+            margin-bottom: 0;
+            display: block;            /* чтобы margin работали как надо */
+        }
+        .button:hover {
+            background-color: #7f00cc;
+        }
+        a {
+            text-decoration: none;
+            color: #7f00cc;
+            font-size: 14px;
+        }
+        p {
+            font-size: 12px;
+            color: #999;
+        }
+        .support {
+            margin-top: 15px;
+            font-size: 12px;
+            text-align: left; /* для единообразия оставим ссылку тоже слева */
+        }
+        /* нижний текст с контактами тоже причешем слева */
+        .container p {
+            text-align: left;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        // Предупреждение при попытке отправки формы
+        function phishingWarning(event) {
+            event.preventDefault();
+            alert("Внимание! Эта страница может быть фишинговой. Никогда не вводите свои логины и пароли на подозрительных сайтах.");
+        }
+    </script>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">
+            <img src="LXP_ITHUB Logo.png" alt="Логотип"> <!-- Изображение логотипа -->
+        </div>
+        <a href="#" class="login-button">Войти</a>
+    </header>
+
+    <!-- Основной контейнер формы -->
+    <div class="container">
+        <h2>Добро пожаловать!</h2>
+        <form method="post" action="#" onsubmit="phishingWarning(event)">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit" class="button">Войти</button>
+        </form>
+        <div class="support">
+            <a href="#">Забыли пароль?</a>
+        </div>
+        <p>Столкнулись с трудностями?<br>Вы можете написать на почту <b>newlxp@ithub.ru</b></p>
+    </div>
+</body>
+</html>
