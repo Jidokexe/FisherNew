@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход | newlxp</title>
+    <title>Вход | New LXP</title>
     <style>
-        /* Сбрасываем стандартные отступы */
         * {
             margin: 0;
             padding: 0;
@@ -13,357 +12,358 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f5f7fa; /* Очень светлый серо-голубой фон, как на newlxp.ru */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(145deg, #f0f4fa 0%, #e6ecf5 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.5;
-            color: #1e293b;
+            padding: 16px;
+            position: relative;
+            color: #1a2639;
         }
 
-        /* Основной контейнер страницы */
-        .page-container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        /* Основной контейнер с тенью — имитация скриншота */
+        .card {
+            max-width: 460px;
             width: 100%;
-            max-width: 400px; /* Ограничиваем ширину для удобства, как на оригинале */
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        /* Шапка с логотипом */
-        .header {
-            padding: 24px 16px 32px 16px; /* Отступы сверху и снизу */
-            text-align: left; /* Лого прижат к левому краю */
-        }
-
-        .logo-link {
-            display: inline-block;
-            text-decoration: none;
-            color: #1e293b; /* Темно-серый цвет для текстового лого */
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            transition: opacity 0.2s;
-        }
-
-        .logo-link:hover {
-            opacity: 0.8;
-        }
-
-        /* Основная карточка с формой */
-        .login-container {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 0 16px;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 20, 40, 0.35), 0 0 0 1px rgba(0,0,0,0.02) inset;
+            padding: 40px 32px 36px;
+            transition: all 0.2s;
         }
 
         h1 {
-            font-size: 36px; /* Крупный заголовок, как на оригинале */
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 32px;
+            font-size: 32px;
+            font-weight: 620;
             letter-spacing: -0.02em;
-            line-height: 1.2;
+            color: #0b1e33;
+            margin-bottom: 32px;
+            line-height: 1.1;
         }
 
-        /* Стили формы */
-        .form-group {
+        /* Поля ввода как на изображении */
+        .input-group {
             margin-bottom: 24px;
         }
 
-        label {
+        .input-label {
             display: block;
-            font-size: 18px; /* Крупные подписи к полям */
-            font-weight: 500;
-            color: #0f172a;
-            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 510;
+            color: #2e405b;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
         }
 
-        input {
+        .input-field {
             width: 100%;
-            padding: 12px 0; /* Только вертикальные отступы, без горизонтальных — для имитации нижней границы */
-            font-size: 18px;
-            border: none;
-            border-bottom: 2px solid #cbd5e1; /* Серая линия снизу, как в оригинале */
-            background-color: transparent;
-            outline: none;
-            transition: border-color 0.2s;
-            border-radius: 0; /* Убираем скругление */
-            font-family: inherit;
-        }
-
-        input:focus {
-            border-bottom-color: #2563eb; /* Синий цвет при фокусе */
-        }
-
-        input::placeholder {
-            color: #94a3b8;
+            background-color: #f8fafd;
+            border: 1.5px solid #dae2ed;
+            border-radius: 16px;
+            padding: 16px 20px;
             font-size: 16px;
+            color: #111e2e;
+            transition: 0.2s;
+            outline: none;
         }
 
-        .login-button {
+        .input-field:focus {
+            border-color: #3b6bb0;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(49, 99, 209, 0.15);
+        }
+
+        .input-field::placeholder {
+            color: #9babc0;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        /* Кнопка входа */
+        .login-btn {
             width: 100%;
-            padding: 14px 24px;
-            background-color: #2563eb; /* Ярко-синий цвет кнопки */
-            color: white;
+            background-color: #1f344d;
             border: none;
-            border-radius: 8px; /* Легкое скругление, как на кнопке */
+            border-radius: 20px;
+            padding: 16px 20px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 590;
+            color: white;
+            letter-spacing: 0.01em;
+            margin: 8px 0 22px 0;
             cursor: pointer;
-            transition: background-color 0.2s;
-            margin: 32px 0 24px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 8px 18px -6px rgba(20, 40, 70, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .login-button:hover {
-            background-color: #1d4ed8;
+        .login-btn:hover {
+            background-color: #2b405e;
         }
 
-        /* Блок ссылок */
-        .links {
-            margin-bottom: 32px;
+        .login-btn:active {
+            transform: scale(0.985);
+            box-shadow: 0 4px 10px -3px rgba(0, 0, 0, 0.2);
         }
 
+        /* ссылка «Забыли пароль?» */
         .forgot-link {
             display: inline-block;
-            color: #0f172a;
-            text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #cbd5e1; /* Точечное подчеркивание */
-            padding-bottom: 2px;
-            transition: border-color 0.2s;
+            color: #3361ad;
+            text-decoration: none;
+            margin-bottom: 32px;
+            border-bottom: 1px dashed #b0c6df;
+            line-height: 1.3;
         }
 
         .forgot-link:hover {
-            border-bottom-color: #2563eb;
+            color: #1f3f72;
+            border-bottom-style: solid;
+        }
+
+        /* Политика конфиденциальности — текст-ссылка как на картинке */
+        .privacy-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            font-size: 15px;
+            border-bottom: 1.5px solid #e3eaf2;
+            padding-bottom: 24px;
         }
 
         .privacy-link {
-            display: inline-block;
-            color: #0f172a;
+            color: #2b4f7c;
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            border-bottom: 1px solid #cbd5e1;
-            padding-bottom: 2px;
-            transition: border-color 0.2s;
+            font-weight: 520;
+            border-bottom: 1px solid #b9cee9;
         }
 
         .privacy-link:hover {
-            border-bottom-color: #2563eb;
+            color: #0b2b4a;
+            border-bottom-color: #2b4f7c;
         }
 
-        /* Разделительная линия */
-        .divider {
-            border: none;
-            border-top: 1px solid #e2e8f0; /* Светло-серая линия */
-            margin: 32px 0 24px 0;
+        /* блок поддержки (точное расположение из png) */
+        .support-block {
+            background-color: #f2f6fc;
+            border-radius: 24px;
+            padding: 22px 20px;
+            margin-top: 12px;
+            margin-bottom: 22px;
+            border: 1px solid #dde6f2;
         }
 
-        /* Текст поддержки */
+        .support-title {
+            font-weight: 620;
+            font-size: 18px;
+            color: #10233d;
+            margin-bottom: 10px;
+        }
+
         .support-text {
-            color: #334155;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #1f3a5f;
         }
 
         .support-email {
-            color: #2563eb;
+            color: #1f3a5f;
             font-weight: 600;
+            background-color: #e5edf8;
+            padding: 2px 8px;
+            border-radius: 30px;
             text-decoration: none;
-            transition: color 0.2s;
+            border: 1px solid #c1d3ec;
         }
 
         .support-email:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
+            background-color: #d5e2f5;
         }
 
-        /* Кнопка спасательного круга (как в правом нижнем углу) */
-        .livechat-button {
+        /* Жёлтый спасательный круг (правый нижний угол) */
+        .lifebuoy {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 9999px; /* Полностью круглая */
-            width: 60px;
-            height: 60px;
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            bottom: 30px;
+            right: 30px;
+            background-color: #fec260;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
-            z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 0 6px rgba(254, 194, 96, 0.25);
+            transition: 0.15s;
+            cursor: pointer;
+            border: 2px solid white;
+            z-index: 100;
         }
 
-        .livechat-button:hover {
-            background-color: #1d4ed8;
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.5);
+        .lifebuoy:hover {
+            background-color: #fdba4a;
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 18px 30px -5px rgba(180, 120, 30, 0.4);
         }
 
-        /* Ссылка "Информация о платформе" (левый нижний угол) */
-        .platform-link {
-            position: fixed;
-            bottom: 36px;
-            left: 24px;
-            color: #475569;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            transition: color 0.2s;
-            z-index: 1000;
-            border-bottom: 1px solid #cbd5e1;
-            padding-bottom: 2px;
+        .lifebuoy svg {
+            width: 36px;
+            height: 36px;
+            fill: #331f00;
+            opacity: 0.85;
         }
 
-        .platform-link:hover {
-            color: #0f172a;
-            border-bottom-color: #2563eb;
-        }
-
-        /* Футер с информацией о cookie (как на оригинале) */
-        .footer {
-            padding: 40px 16px 20px 16px;
-            text-align: left;
+        /* информационный блок про cookie (из содержимого сайта) */
+        .cookie-info {
             font-size: 13px;
-            color: #64748b;
-            max-width: 400px;
-            margin: 0 auto;
+            color: #62748b;
+            background-color: #f8fafd;
+            border-radius: 18px;
+            padding: 16px 18px;
             line-height: 1.5;
+            border: 1px solid #dde3ed;
+            margin-top: 20px;
         }
 
-        .footer a {
-            color: #2563eb;
+        .cookie-info a {
+            color: #25538c;
+            font-weight: 500;
             text-decoration: none;
-            border-bottom: 1px dotted #94a3b8;
+            border-bottom: 1px dotted #9fb7d3;
         }
 
-        .footer a:hover {
-            border-bottom-color: #2563eb;
+        .cookie-info a:hover {
+            color: #0f2f4f;
         }
 
-        /* Адаптивность */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 32px;
-            }
-            
-            label, input, .login-button {
-                font-size: 16px;
-            }
-            
-            .livechat-button {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 16px;
-                right: 16px;
-            }
-            
-            .platform-link {
-                bottom: 24px;
-                left: 16px;
-                font-size: 13px;
-            }
-            
-            .footer {
-                padding: 30px 16px 16px 16px;
-                font-size: 12px;
-            }
+        /* разделитель-линия (--- как на скриншоте) */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #a6b9d0;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            margin: 18px 0 12px;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 2px;
+            background-color: #d9e2ee;
+            border-radius: 2px;
+        }
+
+        /* маленькая плашка "Информация о платформе" */
+        .platform-badge {
+            display: inline-block;
+            background-color: #e7eef8;
+            border-radius: 30px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 520;
+            color: #17345c;
+            border: 1px solid #c2d4ec;
+            margin-top: 8px;
+            margin-bottom: 5px;
+        }
+
+        /* имитация текста "Информация о платформе" под блоком */
+        .footer-note {
+            font-size: 13px;
+            color: #60748e;
+            margin-top: 20px;
+            border-top: 1px dashed #c9d6e8;
+            padding-top: 14px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <div class="page-container">
-        <!-- Шапка с логотипом-ссылкой сверху слева -->
-        <header class="header">
-            <a href="https://newlxp.ru" class="logo-link">newlxp</a>
-        </header>
 
-        <!-- Основной контент -->
-        <main class="login-container">
-            <h1>Добро пожаловать!</h1>
-            
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Пароль</label>
-                    <input type="password" id="password" name="password" placeholder="··········" autocomplete="current-password">
-                </div>
-                
-                <button type="submit" class="login-button">Войти</button>
-            </form>
-            
-            <div class="links">
-                <div><a href="#" class="forgot-link">Забыли пароль?</a></div>
-                <div><a href="#" class="privacy-link">Политика конфиденциальности</a></div>
-            </div>
-            
-            <hr class="divider">
-            
-            <div class="support-text">
-                Столкнулись с трудностями?<br>
-                Вы можете обратиться в поддержку через спасательный круг в правом нижнем углу экрана или написать на почту <a href="mailto:newlxp@ithub.ru" class="support-email">newlxp@ithub.ru</a>
-            </div>
-        </main>
-
-        <!-- Футер с информацией о cookie (полностью скопирован с newlxp.ru) -->
-        <footer class="footer">
-            На нашем сайте обрабатываются cookie-файлы, в том числе при помощи сервисов веб-аналитики. Используя сайт, вы соглашаетесь на обработку персональных данных при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="#">Политике конфиденциальности</a>.
-        </footer>
+    <!-- плавающий спасательный круг в правом нижнем углу -->
+    <div class="lifebuoy" title="Открыть поддержку" role="button" aria-label="Поддержка">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+            <path d="M12 6c-3.309 0-6 2.691-6 6s2.691 6 6 6 6-2.691 6-6-2.691-6-6-6zm0 10c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z"/>
+        </svg>
     </div>
 
-    <!-- Кнопка спасательного круга в правом нижнем углу -->
-    <button class="livechat-button" aria-label="Открыть чат поддержки">
-        🛟
-    </button>
+    <!-- основная карточка — точная копия описания и png -->
+    <div class="card">
+        <h1>Добро пожаловать!</h1>
 
-    <!-- Ссылка "Информация о платформе" в левом нижнем углу -->
-    <a href="#" class="platform-link">Информация о платформе</a>
+        <!-- поле Email -->
+        <div class="input-group">
+            <div class="input-label">Email</div>
+            <input class="input-field" type="email" placeholder="your@email.ru" value="">
+        </div>
 
+        <!-- поле Пароль -->
+        <div class="input-group">
+            <div class="input-label">Пароль</div>
+            <input class="input-field" type="password" placeholder="••••••••" value="">
+        </div>
+
+        <!-- кнопка [Войти] именно в квадратных скобках как на скриншоте, но стилизована кнопкой -->
+        <button class="login-btn">[Войти]</button>
+
+        <!-- забыли пароль? -->
+        <a href="#" class="forgot-link">Забыли пароль?</a>
+
+        <!-- блок Политика конфиденциальности + разделитель (---) -->
+        <div class="privacy-row">
+            <span>Политика конфиденциальности</span>
+            <span style="color:#b3c7e0; font-weight:400;">|</span>
+            <a href="#" class="privacy-link">Политика</a>
+        </div>
+
+        <!-- визуальный разделитель "---" именно как на изображении -->
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span style="color:#a1b5cf; font-weight: 600;">⬇️</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Блок поддержки (Столкнулись с трудностями?) максимально близко к png -->
+        <div class="support-block">
+            <div class="support-title">Столкнулись с трудностями?</div>
+            <div class="support-text">
+                Вы можете обратиться в поддержку через спасательный круг в правом нижнем углу экрана<br>
+                или написать на почту <a href="mailto:newlxp@ithub.ru" class="support-email">newlxp@ithub.ru</a>
+            </div>
+        </div>
+
+        <!-- плашка "Информация о платформе" именно таким текстом -->
+        <div class="platform-badge">Информация о платформе</div>
+
+        <!-- нижний блок с информацией про cookie (из текста сайта) -->
+        <div class="cookie-info">
+            На нашем сайте обрабатываются cookie-файлы, в том числе при помощи сервисов веб-аналитики. Используя сайт, вы соглашаетесь на обработку персональных данных при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="#">Политике конфиденциальности</a>.
+        </div>
+
+        <!-- маленькая ссылка / текст "Информация о платформе" повторно? на изображении снизу есть, но мы уже добавили badge. Для полноты — добавим едва заметный блок, но чтоб не сломать сетку, продублируем текстовой строкой (оригинал содержит в самом низу именно эти слова) -->
+        <div class="footer-note">
+            <span style="opacity:0.7;">Информация о платформе</span> — защита данных
+        </div>
+    </div>
+
+    <!-- небольшой скрипт для предотвращения перехода по ссылкам (просто демо) -->
     <script>
-        // Предотвращаем фактическую отправку формы и переход по ссылкам в демо-режиме
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Демо-режим: страница входа. Реальная авторизация не выполняется.');
-        });
-
-        document.querySelector('.livechat-button').addEventListener('click', function() {
-            alert('Чат поддержки откроется в ближайшее время.');
-        });
-
-        // Для всех ссылок с атрибутом href="#" предотвращаем переход
-        document.querySelectorAll('a[href="#"]').forEach(link => {
-            link.addEventListener('click', (e) => e.preventDefault());
-        });
-
-        // Для ссылки "Информация о платформе" тоже добавляем предупреждение
-        document.querySelector('.platform-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Страница "Информация о платформе" находится в разработке.');
-        });
+        (function() {
+            const links = document.querySelectorAll('a[href="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => e.preventDefault());
+            });
+            // имитация клика на спасательный круг
+            document.querySelector('.lifebuoy')?.addEventListener('click', (e) => {
+                alert('Чат поддержки (демо-режим)\nnewlxp@ithub.ru');
+            });
+        })();
     </script>
 </body>
 </html>
